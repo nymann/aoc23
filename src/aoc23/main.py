@@ -1,27 +1,17 @@
 from pathlib import Path
-import re
 
 import typer
+
+from aoc23.day_01.solver import Day1Solver
 
 app = typer.Typer()
 
 
 @app.command()
-def main(f: Path) -> None:
-    res = 0
-    with open(f) as file:
-        res = day1(file.readlines())
-
-    typer.echo(res)
-
-
-def day1(lines: list[str]) -> int:
-    return sum(calibrate_line(line) for line in lines)
-
-
-def calibrate_line(line: str) -> int:
-    digits = re.findall(r"\d", line)
-    return int(f"{digits[0]}{digits[-1]}")
+def main(input_file: Path) -> None:
+    solver = Day1Solver(input_file=input_file)
+    typer.echo(f"P1: '{solver.p1()}'")
+    typer.echo(f"P2: '{solver.p2()}'")
 
 
 if __name__ == "__main__":
