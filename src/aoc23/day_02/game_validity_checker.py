@@ -12,4 +12,10 @@ class GameValidityChecker:
         return all(self._is_set_valid(game_set) for game_set in game.sets)
 
     def _is_set_valid(self, game_set: GameSet) -> bool:
-        return game_set.blue <= self._blue and game_set.green <= self._green and game_set.red <= self._red
+        return all(
+            [
+                game_set.blue <= self._blue,
+                game_set.green <= self._green,
+                game_set.red <= self._red,
+            ],
+        )

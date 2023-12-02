@@ -8,9 +8,10 @@ app = typer.Typer()
 
 
 @app.command()
-def main(input_file: Path) -> None:
+def main(input_file: Path, red: int, green: int, blue: int) -> None:
     solver = Day2Solver(input_file=input_file)
-    typer.echo(f"P1: '{solver.p1(red=12, green=13, blue=14)}'")
+    p1 = solver.p1(red=red, green=green, blue=blue)
+    typer.echo(f"P1: '{p1}'")
     typer.echo(f"P2: '{solver.p2()}'")
 
 
