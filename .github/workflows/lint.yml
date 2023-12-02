@@ -2,9 +2,9 @@ name: Aoc23 CI Lint
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 jobs:
   lint:
